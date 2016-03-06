@@ -1,0 +1,42 @@
+#ifndef LABEL_HPP
+#define LABEL_HPP
+
+#include "Component.hpp"
+#include "ResourceIdentifiers.hpp"
+#include "ResourceHolder.hpp"
+
+#include <SFML/Graphics/Text.hpp>
+
+
+namespace GUI
+{
+
+class Label : public Component
+{
+    public:
+        typedef std::shared_ptr<Label> Ptr;
+            
+
+	public:
+							Label(const std::string& text, const FontHolder& fonts);
+							Label(const std::string& text);
+
+        virtual bool		isSelectable() const;
+		void				setText(const std::string& text);
+
+        virtual void		handleEvent(const sf::Event& event);
+
+		virtual void 		setTextSize(int size);
+
+
+    private:
+        void				draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
+
+    private:
+        sf::Text			mText;
+};
+
+}
+
+#endif // LABEL_HPP

@@ -1,0 +1,64 @@
+#include "Component.hpp"
+
+namespace GUI
+{
+Component::Component()
+: mIsSelected(false)
+, mIsActive(false)
+{
+}
+
+Component::~Component()
+{
+}
+
+bool Component::isSelected() const
+{
+	return mIsSelected;
+}
+
+void Component::select()
+{
+	mIsSelected = true;
+}
+
+void Component::deselect()
+{
+	mIsSelected = false;
+}
+
+bool Component::isActive() const
+{
+	return mIsActive;
+}
+
+void Component::activate()
+{
+	mIsActive = true;
+}
+
+void Component::deactivate()
+{
+	mIsActive = false;
+}
+
+bool Component::contains(int x, int y) {
+	return false;
+}
+
+bool Component::draw() {
+	return true;
+}
+
+bool Component::update(sf::Time dt) {
+	return false;
+}
+
+bool Component::captureMouseWhenActive() {
+	return false;
+}
+
+bool Component::handleEventGently() {
+	return false;
+}
+}
